@@ -104,6 +104,7 @@ func DoGenProject(apiFile, dir, style string, withTest bool) error {
 	logx.Must(genHandlers(dir, rootPkg, cfg, api))
 	logx.Must(genLogic(dir, rootPkg, cfg, api))
 	logx.Must(genMiddleware(dir, cfg, api))
+	logx.Must(genI18n(dir))
 	if withTest {
 		logx.Must(genHandlersTest(dir, rootPkg, cfg, api))
 		logx.Must(genLogicTest(dir, rootPkg, cfg, api))
