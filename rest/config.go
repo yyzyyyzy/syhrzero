@@ -20,6 +20,9 @@ type (
 		Metrics    bool `json:",default=true"`
 		MaxBytes   bool `json:",default=true"`
 		Gunzip     bool `json:",default=true"`
+		I18n       bool `json:",default=true"`
+		Tenant     bool `json:",default=false"`
+		ClientIP   bool `json:",default=false"`
 	}
 
 	// A PrivateKeyConf is a private key config.
@@ -33,6 +36,12 @@ type (
 		Strict      bool          `json:",default=false"`
 		Expiry      time.Duration `json:",default=1h"`
 		PrivateKeys []PrivateKeyConf
+	}
+
+	// AuthConf is a JWT config
+	AuthConf struct {
+		AccessSecret string `json:",optional,env=AUTH_SECRET"`
+		AccessExpire int64  `json:",optional,env=AUTH_EXPIRE"`
 	}
 
 	// A RestConf is a http service config.
